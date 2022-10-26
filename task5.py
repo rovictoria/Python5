@@ -72,4 +72,4 @@ print(new_list)
 print('Вторым способом: ')
 print(list(i for (n, i) in enumerate(list1) if i not in list1[0:n]))
 
-# Задача 4*. Создайте игру в крестики-нолики.
+
