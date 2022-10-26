@@ -41,8 +41,15 @@ import random
 
 n = int(input('Введите количество чисел в списке: '))
 list1 = [random.randint(1, 10) for _ in range(n)]
-# length1 = len(list1)  # для 3 способа и аналогично было бы для 2-ого
+length1 = len(list1)  # для 3 способа и аналогично было бы для 2-ого
 print(list1)
+
+list_with_counters = [list1.count(i) for i in range(1,11)]
+print(f'Отображение кол-ва повторений чисел [1, 10] соотв-но: {list_with_counters}')
+
+list_of_repeats = [i for i in list_with_counters if i > 1]
+repeats = sum(list_of_repeats)
+print(f'Суммарное количество повторений = {repeats}')
 
 print('Первым способом: ')
 list2 = list(set(list1))
@@ -54,16 +61,9 @@ new_list = []  #чтобы использовать первоначальный
 for d in list1:
   if d in new_list: continue
   new_list.append(d)
-
-list1[:] = new_list
-print(list1)
+print(new_list)
 
 print('Третьим способом: ')
 print(list(i for (n, i) in enumerate(list1) if i not in list1[0:n]))
-# print(f'Количество повторяющихся элементов: {length1 -len(list1)}')  #для второго аналогичная запись, не дублировала
 
-from collections import Counter
-for i in list1:
-    c += counter(list1[(i)])
-print(Counter(list1))
 # Задача 4*. Создайте игру в крестики-нолики.
