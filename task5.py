@@ -3,10 +3,14 @@
 # 2, 3, 4, 6, 7, 8 -> 6, 7, 8
 print('1. Вывод чисел > 5 в последовательности.')
 numbers = list(x for x in range(1,11))
+print('Первый способ: ')
 new_numbers = [i for i in numbers if i > 5]
 print(f'Исходная последовательность: {numbers}')
 print(f'Все элементы больше 5: {new_numbers}')
 
+print('Второй способ: ')
+result_numbers = list(filter(lambda x: x > 5, numbers))
+print(f'Все элементы больше 5: {result_numbers}')
 print()
 # Задача 2. Дан список случайных чисел. Создайте список, в который
 # попадают числа, описывающие возрастающую последовательность. 
