@@ -11,25 +11,22 @@ print(f'Все элементы больше 5: {new_numbers}')
 # попадают числа, описывающие возрастающую последовательность. 
 # Порядок элементов менять нельзя.
 # [1, 5, 2, 3, 4, 6, 1, 7] =>[1, 2, 3] или [1, 7] или [1, 6, 7] и т.д.
+from random import randint
 
 random_numbers = [1, 5, 2, 2, 3, 4, 6, 1, 7]
-def get_up2(random_numbers):
-    ups = [random_numbers[0]]
-    for i in random_numbers:
-        if i > max(ups):
-            ups.append(i)
-    return ups
+print(random_numbers)
+def all_larger_numbers(random_numbers):
+    length = len(random_numbers)
+    pos = randint(0, length-2)
+    max_length = randint(2, length)
+    largers = [random_numbers[pos]]
+    random_numbers #удалить элементы до pos
+    for i in random_numbers[pos,length-1]:
+        if len(largers) < max_length and i > max(largers):
+            largers.append(i)
+    return largers
     
-print(get_up2(random_numbers))
-
-def get_up(random_numbers):
-    ups = []
-    for i in range(len(random_numbers)):
-        if random_numbers[i] == max(random_numbers[:i+1:]) and random_numbers[i] not in ups:
-            ups.append(random_numbers[i])
-    return ups
-
-print(get_up(random_numbers))
+print(all_larger_numbers(random_numbers))
 
 # Задача 3. Задайте список случайных чисел от 1 до 10.
 # Посчитайте, сколько всего совпадающих элементов есть в списке.
@@ -37,7 +34,6 @@ print(get_up(random_numbers))
 # [1, 4, 2, 3, 4, 6, 1, 7] => 4 элемента совпадают
 # Список уникальных элементов
 # [1, 4, 2, 3, 6, 7]
-import random
 
 n = int(input('Введите количество чисел в списке: '))
 list1 = [random.randint(1, 10) for _ in range(n)]
